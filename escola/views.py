@@ -1,6 +1,7 @@
 from django.http import JsonResponse
+from escola.models import Aluno
 
 def alunos(request):
     if request.method == 'GET':
-        aluno = {'id':1, 'nome':'Vinicius'}
-        return JsonResponse(aluno)
+        alunos = Aluno.objects.all()
+        return JsonResponse(alunos)
